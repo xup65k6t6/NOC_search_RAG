@@ -1,0 +1,13 @@
+transformers
+pgvector
+llama-index
+torch 
+torchvision 
+torchaudio
+psycopg2
+langchain
+langchain_experimental
+langchain_openai
+accelerate   
+llama_index      
+datasets
