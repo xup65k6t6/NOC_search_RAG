@@ -11,3 +11,6 @@ langchain_openai
 accelerate   
 llama_index      
 datasets
+requests 
+beautifulsoup4
+pandas
