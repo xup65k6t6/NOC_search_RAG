@@ -8,14 +8,16 @@ from bs4 import BeautifulSoup
 from bs4.element import Tag
 from tqdm import tqdm
 
-# URL of the website to scrape
-url = "https://noc.esdc.gc.ca/Structure/Hierarchy"
+from noc_doc_process import load_table_from_database
 
-# Send a GET request to the URL
-response = requests.get(url)
+def encode_decode(cell):
+    if isinstance(cell, str):
+        return cell.encode('utf-8').decode('utf-8')
+    else:
+        return cell
 
-def save_to_database(unit_group):
-    conn = sqlite3.connect('unit_groups.db')
+def save_to_database(unit_group, db_path = 'unit_groups.db'):
+    conn = sqlite3.connect(db_path)
     c = conn.cursor()
 
     # Create a table if it doesn't exist
@@ -140,7 +142,7 @@ def scrape_unit_group_profile(url: str) -> dict:
 
 
 # Function to scrape sub-websites for each unit group
-def scrape_sub_websites(soup) -> list[dict]:
+def scrape_sub_websites(soup, db_path) -> list[dict]:
     # Find all details tags containing sub-website information
     details_tags = soup.find_all('details', class_='nocLI')
     # Iterate over each details tag
@@ -162,29 +164,47 @@ def scrape_sub_websites(soup) -> list[dict]:
             # sub_website_url_lst.append(sub_website_url)
             if unit_group:
                 unit_group_lst.append(unit_group)
-            save_to_database(unit_group)
+            save_to_database(unit_group, db_path= db_path)
             pbar.update(1)
             time.sleep(random.randint(15, 60))
     return unit_group_lst
 
 
 if __name__ == "__main__":
-    # Send a GET request to the URL
-    response = requests.get(url)
+    db_path = 'data/unit_groups.db'
+    # URL of the website to scrape
+    url = "https://noc.esdc.gc.ca/Structure/Hierarchy"
 
-    # Check if the request was successful (status code 200)
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.content, 'html.parser')
-        unit_group_lst = scrape_sub_websites(soup)
-        
+    if os.path.exists(db_path):
+        df = load_table_from_database(db_path = db_path, table_name='unit_groups')
     else:
-        print("Failed to retrieve data. Status code:", response.status_code)
-        exit()
+        print("Get data from websites")
+        # Send a GET request to the URL
+        response = requests.get(url)
 
-    # Create a DataFrame from the unit group data
-    df = pd.DataFrame(unit_group_lst)
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.content, 'html.parser')
+            unit_group_lst = scrape_sub_websites(soup, db_path)
+            
+        else:
+            print("Failed to retrieve data. Status code:", response.status_code)
+            exit()
 
+        # Create a DataFrame from the unit group data
+        df = pd.DataFrame(unit_group_lst)
+    noc_detail_cols = [
+        # "description",
+        # "example_titles",
+        # "index_titles",
+        "main_duties",
+        # "employment_requirements"
+        ]
+    df = df.map(encode_decode)
+    for _ in noc_detail_cols:
+        df[_] = df['noc'] + ' \n' + df[_]
+    df = df[["url", "noc"] + noc_detail_cols]
     # Save the DataFrame to a CSV file
-    df.to_csv('unit_group_data.csv', index=False)
+    df.to_csv('data/unit_group_data.csv', index=False, encoding='utf-8')
 
     print('Done')

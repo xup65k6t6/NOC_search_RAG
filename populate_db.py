@@ -9,7 +9,7 @@ from langchain.vectorstores.chroma import Chroma
 
 
 CHROMA_PATH = "chroma"
-DATA_PATH = "data/noc_docs.csv"
+DATA_PATH = "data/unit_group_data.csv"
 
 
 def main():
@@ -24,21 +24,21 @@ def main():
 
     # Create (or update) the data store.
     documents = load_documents()
-    # chunks = split_documents(documents)
-    add_to_chroma(documents)
+    chunks = split_documents(documents)
+    add_to_chroma(chunks)
 
 
 def load_documents():
     # document_loader = PyPDFDirectoryLoader(DATA_PATH)
     # data = document_loader.load()
-    loader = CSVLoader(file_path=DATA_PATH)
+    loader = CSVLoader(file_path=DATA_PATH, metadata_columns=['noc'],encoding="utf-8")
     data = loader.load()
     return data
 
 def split_documents(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1024,
-        chunk_overlap=128,
+        chunk_size=4096,
+        chunk_overlap=256,
         length_function=len,
         is_separator_regex=False,
     )

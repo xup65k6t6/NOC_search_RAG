@@ -26,5 +26,6 @@ if __name__ == "__main__":
     output_file_path = "data/noc_docs.csv"
 
     data_frame = load_table_from_database(db_path, table_name)
-    new_dataframe = create_document_dataframe(data_frame)
-    new_dataframe.to_csv(output_file_path, index=False)
+    df = data_frame[["url","noc","description","example_titles","index_titles","main_duties","employment_requirements"]]
+    new_dataframe = create_document_dataframe(df)
+    new_dataframe.to_csv(output_file_path, index=False, encoding='utf-8')

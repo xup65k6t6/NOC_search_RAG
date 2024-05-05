@@ -55,8 +55,8 @@ if __name__ == "__main__":
     # Define Gradio interface
     iface = gr.Interface(
         fn=query_rag,
-        inputs=gr.Textbox(lines=3, placeholder="Enter your question here..."),
-        outputs="text",
+        inputs=gr.Textbox(lines=5, placeholder="Enter your question here..."),
+        outputs=gr.Textbox(lines=5),
         title="RAG Query",
         description="A tool to query information using a RAG model."
     )
