@@ -188,5 +188,3 @@ if __name__ == "__main__":
     df.to_csv('unit_group_data.csv', index=False)
 
     print('Done')
-
-print('Stop')
