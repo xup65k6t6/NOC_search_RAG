@@ -1,6 +1,6 @@
 # **NOC Search RAG**
 
-This repository applies RAG (Retrieval Augmented Generation) techniques with LLM (Large Language Models) to assist in selecting the [National Occupation Classification (NOC)](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html) closest to your background.
+This repository applies RAG (Retrieval Augmented Generation) techniques with LLM (Large Language Models) to assist in selecting the Canada visa [National Occupation Classification (NOC)](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/find-national-occupation-code.html) closest to your background.
 
 Running locally on the cutting-edge Llama 3 model, facilitated by Ollama, this tool ensures data privacy and confidentiality while delivering precise and tailored outcomes.
 
