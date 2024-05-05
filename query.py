@@ -3,7 +3,7 @@ import gradio as gr
 from langchain.vectorstores.chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_community.llms.ollama import Ollama
-from get_embedding_func import get_embedding_function
+from utils.embedding.get_embedding_func import get_embedding_function
 
 CHROMA_PATH = "chroma"
 
@@ -58,8 +58,7 @@ if __name__ == "__main__":
         inputs=gr.Textbox(lines=3, placeholder="Enter your question here..."),
         outputs="text",
         title="RAG Query",
-        description="A tool to query information using a RAG model.",
-        allow_flagging=False,  # Disables flagging feature
+        description="A tool to query information using a RAG model."
     )
 
     iface.launch(share=True)

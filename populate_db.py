@@ -4,7 +4,7 @@ from langchain.document_loaders.pdf import PyPDFDirectoryLoader
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
-from get_embedding_func import get_embedding_function
+from utils.embedding.get_embedding_func import get_embedding_function
 from langchain.vectorstores.chroma import Chroma
 
 
