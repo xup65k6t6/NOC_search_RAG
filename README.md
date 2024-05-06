@@ -32,9 +32,62 @@ python query.py
 
 7. in the browser, open window `http://127.0.0.1:7860`
 
-## Example vedio
+## Examples
 
-Coming soon ... 
+### Example 1:
+
+![example 1](images/Example 1.png)
+
+#### **Question:**
+
+> I am a Data Scientist.
+> What is the NOC code closest to my background?
+> Give me the closest 5-digit NOC code and job duties even if there is not a direct match.
+
+#### **Answer:**
+
+Based on the provided context, the closest NOC code to your background as a Data Scientist is:
+
+**21211**
+
+Job Duties:
+
+* Implement cutting-edge techniques and tools in machine learning, deep learning, and artificial intelligence to make data analysis more efficient
+* Perform large-scale experimentation to identify hidden relationships between variables in large datasets
+* Create advanced machine learning algorithms such as regression, simulation, scenario analysis, modeling, clustering, decision trees, and neural networks
+* Prepare and extract data using programming language
+* Implement new statistical, machine learning, or other mathematical methodologies to solve specific business problems
+* Visualize data in a way that allows a business to quickly draw conclusions and make decisions
+* Develop artificial intelligence models and algorithms and implement them to meet the needs of the organization.
+
+This NOC code is closest to your background as a Data Scientist because it involves implementing machine learning, deep learning, and artificial intelligence techniques, performing large-scale experimentation, creating advanced machine learning algorithms, preparing and extracting data using programming language, and developing AI models and algorithms.
+
+### Example 2:
+
+![example 2](images/Example 2.png)
+
+#### **Question:**
+
+> I am a merchandising buyer and responsible for managing retail stocks.
+> What is the NOC code closest to my background?
+> Give me the closest 5-digit NOC code and job duties even if there is not a direct match.
+
+#### **Answer:**
+
+Based on your description of being a merchandising buyer and responsible for managing retail stocks, I would suggest that the NOC (National Occupational Classification) code closest to your background is:
+
+65102 - Store shelf stockers, clerks, and order fillers
+
+This job duties include:
+
+* Unpacking products received by store and counting, weighing or sorting items
+* Using barcode scanning equipment to record incoming stock, verify pricing and maintain computerized stock inventory
+* Stocking shelves and display areas and keeping stock clean and in order
+* Labeling and documenting orders, and preparing shipping, customs and courier documentation when required
+
+While this NOC code is primarily focused on the day-to-day operations of a retail store, it's possible that your role as a merchandising buyer may involve some or all of these duties.
+
+The other two NOC codes mentioned (62010 - Retail sales supervisors and 60020 - Retail and wholesale trade managers) are more focused on management and supervision roles, which don't seem to be directly applicable to your background.
 
 ## Credits
 

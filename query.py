@@ -58,7 +58,11 @@ if __name__ == "__main__":
         inputs=gr.Textbox(lines=5, placeholder="Enter your question here..."),
         outputs=gr.Textbox(lines=5),
         title="RAG Query",
-        description="A tool to query information using a RAG model."
+        description="A tool to query information using a RAG model.",
+        examples=[
+            ["""I am a Data Scientist. \nWhat is the NOC code closest to my background? \nGive me the closest 5-digit NOC code and job duties even if there is not a direct match."""],
+            ["""I am a merchandising buyer and responsible for managing retail stocks. \nWhat is the NOC code closest to my background? \nGive me the closest 5-digit NOC code and job duties even if there is not a direct match."""]
+            ]
     )
 
     iface.launch(share=True)
