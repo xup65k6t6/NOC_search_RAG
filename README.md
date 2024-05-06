@@ -36,7 +36,7 @@ python query.py
 
 ### Example 1:
 
-![example 1](images/Example 1.png)
+![example 1](<images/Example 1.png>)
 
 #### **Question:**
 
@@ -64,7 +64,7 @@ This NOC code is closest to your background as a Data Scientist because it invol
 
 ### Example 2:
 
-![example 2](images/Example 2.png)
+![example 2](<images/Example 2.png>)
 
 #### **Question:**
 
