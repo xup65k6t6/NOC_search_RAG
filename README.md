@@ -33,6 +33,10 @@ python query.py
 7. in the browser, open window `http://127.0.0.1:7860`
 
 ## Examples
+Video:
+
+https://github.com/xup65k6t6/NOC_search_RAG/assets/49940244/dc6aae6d-ae71-44a0-beef-1153f6a8ccc2
+
 
 ### Example 1:
 
